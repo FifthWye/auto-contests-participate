@@ -1,0 +1,28 @@
+{
+  "name": "lolz-auto-contests-participate",
+  "version": "1.0.1",
+  "description": "Simple programm for auto participating in contests on site Lolzteam",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package-win": "electron-packager . lolz-auto-contests-participate --overwrite --platform=win32 --icon=assets/icons/icon.ico --prune=true"
+  },
+  "repository": "git+https://github.com/FifthWye/lolz-auto-contests-participate.git",
+  "author": "FifthWye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FifthWye/lolz-auto-contests-participate/issues"
+  },
+  "homepage": "https://github.com/FifthWye/lolz-auto-contests-participate#readme",
+  "devDependencies": {
+    "electron": "^5.0.4",
+    "electron-builder": "^20.44.4",
+    "electron-packager": "^14.0.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "electron-json-storage": "^4.1.6",
+    "electron-store": "^4.0.0",
+    "puppeteer": "^1.18.0"
+  }
+}
