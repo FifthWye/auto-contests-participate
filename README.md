@@ -1,0 +1,1 @@
+# lolz-auto-contests-participate
