@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "package-win": "electron-packager . lolz-auto-contests-participate --overwrite --platform=win32 --icon=assets/icons/icon.ico --prune=true"
+    "build": "electron-builder build --win --publish never",
+    "deploy": "electron-builder build --win --publish always"
   },
   "repository": "git+https://github.com/FifthWye/lolz-auto-contests-participate.git",
   "author": "FifthWye",
@@ -17,12 +18,19 @@
   "devDependencies": {
     "electron": "^5.0.4",
     "electron-builder": "^20.44.4",
-    "electron-packager": "^14.0.0"
+    "electron-packager": "^14.1.0"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "electron-json-storage": "^4.1.6",
     "electron-store": "^4.0.0",
+    "electron-updater": "^4.2.0",
     "puppeteer": "^1.18.0"
+  },
+  "build": {
+    "appId": "com.lacp.app",
+    "publish": {
+      "provider":"github",
+      "token":"256bafd90c941a17477254a087db0806e604e78f"
+    }
   }
 }
