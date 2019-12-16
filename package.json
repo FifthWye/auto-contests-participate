@@ -28,6 +28,8 @@
   },
   "build": {
     "appId": "com.lacp.app",
+    "asar": true,
+    "asarUnpack": "node_modules/puppeteer/.local-chromium/**/*",
     "publish": {
       "provider":"github",
       "token":"256bafd90c941a17477254a087db0806e604e78f"

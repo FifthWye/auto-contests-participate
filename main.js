@@ -23,7 +23,7 @@ function createWindow() {
     }
   });
 
-  //mainWindow.removeMenu();
+  mainWindow.removeMenu();
 
   // and load the index.html of the app.
   mainWindow.loadFile("index.html");
@@ -39,7 +39,7 @@ function createWindow() {
   });
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on("closed", function() {
@@ -75,15 +75,15 @@ ipcMain.on("app_version", event => {
   event.sender.send("app_version", { version: app.getVersion() });
 });
 
-autoUpdater.on('update-available', () => {
-  mainWindow.webContents.send('update_available');
+autoUpdater.on("update-available", () => {
+  mainWindow.webContents.send("update_available");
 });
 
-autoUpdater.on('update-downloaded', () => {
-  mainWindow.webContents.send('update_downloaded');
+autoUpdater.on("update-downloaded", () => {
+  mainWindow.webContents.send("update_downloaded");
 });
 
-ipcMain.on('restart_app', () => {
+ipcMain.on("restart_app", () => {
   autoUpdater.quitAndInstall();
 });
 
@@ -97,12 +97,15 @@ const loginUrl = "/login"; //login page
 const puppeteerCookies = store.get("puppeteerCookies");
 let contestsYouCantParticipate = [];
 
+const chromium_path = puppeteer.executablePath().replace('app.asar', 'app.asar.unpacked');
+
 if (puppeteerCookies) {
   ipcMain.on("inputs", async (event, arg) => {
     event.sender.send("log", "Start");
     if (arg == 1) {
       const browser0 = await puppeteer.launch({
-        headless: false
+        executablePath: chromium_path,
+        headless: true
       });
       event.sender.send("log", "Creating page to work with.");
       const page = await browser0.newPage();
@@ -122,6 +125,7 @@ if (puppeteerCookies) {
       event.sender.send("log", "Finished now you participate in all contests");
     } else if (arg >= 2 && arg <= 5) {
       const browser1 = await puppeteer.launch({
+        executablePath: chromium_path,
         headless: true
       });
       const interval =
@@ -174,6 +178,7 @@ if (puppeteerCookies) {
     const username = arg.username; // arg.username;
     const password = arg.password; // arg.password;
     const browser2 = await puppeteer.launch({
+      executablePath: chromium_path,
       headless: true
     });
     const page = await browser2.newPage();
