@@ -15,10 +15,11 @@ const githubData = {
   'provider': 'github',
   'owner':    'FifthWye',
   'repo':     'auto-contests-participate',
-  'token':    '750487a7401713c7f61d62552593b742ef72f44b'
+  'token':    '401ecfdb63438bdc4c72154679a150aa662d8cc6'
 };
 
 autoUpdater.setFeedURL(githubData);
+updater.autoDownload = false;
 
 function createWindow() {
   // Create the browser window.
