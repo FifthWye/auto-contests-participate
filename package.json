@@ -1,6 +1,6 @@
 {
   "name": "lolz-auto-contests-participate",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple programm for auto participating in contests on site Lolzteam",
   "main": "main.js",
   "scripts": {
