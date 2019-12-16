@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
     message.innerText = "A new update is available. Downloading now...";
     notification.classList.remove("hidden");
   });
-  
+
   ipcRenderer.on("update_downloaded", () => {
     ipcRenderer.removeAllListeners("update_downloaded");
     message.innerText =
@@ -33,13 +33,6 @@ window.addEventListener("DOMContentLoaded", () => {
     restartButton.classList.remove("hidden");
     notification.classList.remove("hidden");
   });
-
-  function closeNotification() {
-    notification.classList.add('hidden');
-  }
-  function restartApp() {
-    ipcRenderer.send('restart_app');
-  }
 
   ipcRenderer.on("inputs", (event, arg) => {
     switch (arg) {
@@ -89,6 +82,22 @@ window.addEventListener("DOMContentLoaded", () => {
     ipcRenderer.send("stop", "1");
     document.getElementById("start").style.display = "block";
     document.getElementById("stop").style.display = "none";
+  });
+
+  document.querySelector("#reset").addEventListener("click", function() {
+    ipcRenderer.send("reset", "1");
+    document.getElementById("userData").style.display = "block";
+    document.getElementById("panel").style.display = "none";
+  });
+
+  document
+    .querySelector("#restart-button")
+    .addEventListener("click", function() {
+      ipcRenderer.send("restart_app");
+    });
+
+  document.querySelector("#close-button").addEventListener("click", function() {
+    notification.classList.add("hidden");
   });
 
   document.querySelector("#submit").addEventListener("click", function() {

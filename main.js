@@ -87,6 +87,11 @@ ipcMain.on("restart_app", () => {
   autoUpdater.quitAndInstall();
 });
 
+ipcMain.on("reset", () => {
+  store.delete("puppeteerCookies");
+  mainWindow.webContents.send("log", "Account data was reset");
+});
+
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
@@ -97,7 +102,9 @@ const loginUrl = "/login"; //login page
 const puppeteerCookies = store.get("puppeteerCookies");
 let contestsYouCantParticipate = [];
 
-const chromium_path = puppeteer.executablePath().replace('app.asar', 'app.asar.unpacked');
+const chromium_path = puppeteer
+  .executablePath()
+  .replace("app.asar", "app.asar.unpacked");
 
 if (puppeteerCookies) {
   ipcMain.on("inputs", async (event, arg) => {

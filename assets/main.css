@@ -113,6 +113,7 @@ textarea {
   color: #fff;
   width: 100%;
   cursor: pointer;
+  margin-top:10px;
 }
 
 .btn-lolz:hover,

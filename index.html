@@ -17,14 +17,13 @@
     <div class="container">
         <div id="notification" class="hidden">
             <p id="message"></p>
-            <button class="btn btn-lolz" id="close-button" onClick="closeNotification()">
-                Close
+            <button class="btn btn-lolz" id="close-button">
+                Hide notification
             </button>
-            <button class="btn btn-lolz" id="restart-button" onClick="restartApp()" class="hidden">
+            <button class="btn btn-lolz" id="restart-button" class="hidden">
                 Restart
             </button>
         </div>
-
         <div class="row">
             <div class="col-md-4">
                 <form onsubmit="return false" novalidate>
@@ -37,7 +36,7 @@
                             <label>Password</label>
                             <input type="password" class="form-control" id="password" placeholder="Password" required />
                         </div>
-                        <input type="submit" name="submit" id="submit" value="Start" class="btn btn-lolz" />
+                        <input type="submit" name="submit" id="submit" value="Log in & Start" class="btn btn-lolz" />
                     </div>
                     <div id="authenticationCode">
                         <div class="form-group">
@@ -60,6 +59,7 @@
                         </div>
                         <input type="submit" id="stop" value="Stop" class="btn btn-stop" />
                         <input type="submit" id="start" value="Start" class="btn btn-lolz" />
+                        <input type="submit" id="reset" value="Reset account" class="btn btn-lolz" />
                     </div>
                 </form>
             </div>
