@@ -1,5 +1,5 @@
 {
-  "name": "lolz-auto-contests-participate",
+  "name": "auto-contests-participate",
   "version": "1.0.3",
   "description": "Simple programm for auto participating in contests on site Lolzteam",
   "main": "main.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/FifthWye/lolz-auto-contests-participate.git"
+    "url": "https://github.com/FifthWye/auto-contests-participate.git"
   },
   "author": "FifthWye",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FifthWye/lolz-auto-contests-participate/issues"
+    "url": "https://github.com/FifthWye/auto-contests-participate/issues"
   },
-  "homepage": "https://github.com/FifthWye/lolz-auto-contests-participate#readme",
+  "homepage": "https://github.com/FifthWye/auto-contests-participate#readme",
   "devDependencies": {
     "electron": "^5.0.4",
     "electron-builder": "^20.44.4",
@@ -37,8 +37,7 @@
       {
         "provider": "github",
         "owner": "FifthWye",
-        "repo": "lolz-auto-contests-participate",
-        "token": "a22503659db898866f8b313750d156ed129ec772"
+        "repo": "auto-contests-participate"
       }
     ]
   }

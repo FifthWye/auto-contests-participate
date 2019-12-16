@@ -11,6 +11,14 @@ const { autoUpdater } = require("electron-updater");
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+const githubData = {
+  'provider': 'github',
+  'owner':    'FifthWye',
+  'repo':     'auto-contests-participate',
+  'token':    '750487a7401713c7f61d62552593b742ef72f44b'
+};
+
+autoUpdater.setFeedURL(githubData);
 
 function createWindow() {
   // Create the browser window.
