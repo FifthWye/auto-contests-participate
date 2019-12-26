@@ -17,6 +17,8 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 500,
+    minHeight: 500,
+    minWidth: 300,
     icon: path.join(__dirname, "assets/icons/png/64x64.png"),
     webPreferences: {
       preload: path.join(__dirname, "preload.js")
@@ -224,7 +226,7 @@ if (puppeteerCookies) {
         await page.type("[name='code']", code);
         await page.click("[name='save']");
         await page.waitForSelector("#account-style");
-        event.sender.send("log", "Success. Just logged in with code - " + code);
+        event.sender.send("log", "Success. Just logged in with code - " + code + ". Ready to start.");
         event.sender.send("inputs", "4");
         await page.goto(mainUrl + contestsPage);
         await page.waitForSelector(".DiscussionListOptions");

@@ -33,6 +33,11 @@
     "appId": "com.lacp.app",
     "asar": true,
     "asarUnpack": "node_modules/puppeteer/.local-chromium/**/*",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icons/icon.ico",
+      "publisherName": "FifthWye"
+    },
     "publish": [
       {
         "provider": "github",
