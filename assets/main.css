@@ -41,7 +41,7 @@ nav p {
 
 form {
   background-color: #272727;
-  padding: 30px;
+  padding: 50px 30px 30px 30px;
   height: 100%;
 }
 
@@ -84,8 +84,14 @@ textarea {
   border: none;
 }
 
-.help-list{
+.help-list {
   list-style-type: none;
+}
+
+.lzt_logo {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .close {
