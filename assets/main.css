@@ -19,17 +19,17 @@ nav {
   align-items: center;
 }
 
-nav h1{
+nav h1 {
   padding: 0;
   margin: 0;
 }
 
-nav p{
+nav p {
   float: right;
   margin-bottom: 0 !important;
 }
 
-#notification{
+#notification {
   text-align: center;
   justify-content: center;
   margin-bottom: 20px;
@@ -47,6 +47,12 @@ form {
 
 .container {
   height: 90%;
+}
+
+.modal-content {
+  background-color: #484848;
+  border-radius: 0;
+  border: 0;
 }
 
 .form-control {
@@ -76,6 +82,18 @@ textarea {
   -moz-border-radius: 0 !important;
   border-radius: 0 !important;
   border: none;
+}
+
+.help-list{
+  list-style-type: none;
+}
+
+.close {
+  color: fff;
+}
+
+.close:hover {
+  color: fff;
 }
 
 .logs {
@@ -113,7 +131,7 @@ textarea {
   color: #fff;
   width: 100%;
   cursor: pointer;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
 .btn-lolz:hover,
@@ -128,6 +146,23 @@ textarea {
 
 .btn-lolz:disabled {
   cursor: not-allowed;
+}
+
+.btn-help {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  color: white;
+  background-color: rgb(34, 142, 93);
+  cursor: pointer;
+}
+
+.btn-help:hover {
+  background-color: rgb(75, 134, 108);
 }
 
 #authenticationCode {

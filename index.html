@@ -1,87 +1,169 @@
 <html>
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>ACP</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./assets/main.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-</head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  </head>
 
-<body>
+  <body>
+    <div class="modal fade" id="help-popup" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Help</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <ul class="help-list">
+              <li><h6>How to use?</h6><p>First log in to your account than you will se the user interface for actions automatizations.</p></li>
+              <li><h6>What is this white space on the right-side?</h6><p>This white space is an actions log. There you will see errors and successful processes.</p></li>
+              <li><h6>How to add new site for auto contests participate?</h6> <p>If you know website where you can participate in free contests or get some freebie. Send link to this website with short description to my Telegram  <a href="tg://resolve?domain=ReallyNotMad">@ReallyNotMad</a></p></li>
+              <li><h6>What if I don't know English?</h6><p>Mne pohuj</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <nav class="navbar navbar-expand-md navbar-dark fixed-top text-center">
-        <h1 class="navbar-brand">ACP</h1>
-        <p id="version"></p>
+      <h1 class="navbar-brand">ACP</h1>
+      <p id="version"></p>
     </nav>
     <div class="container">
-        <div id="notification" class="hidden">
-            <p id="message"></p>
-            <button class="btn btn-lolz" id="close-button">
-                Hide notification
-            </button>
-            <button class="btn btn-lolz" id="restart-button" class="hidden">
-                Restart
-            </button>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <form onsubmit="return false" novalidate>
-                    <div id="userData">
-                        <div class="form-group">
-                            <label>Username</label>
-                            <input type="username" class="form-control" id="username" placeholder="Username" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password" required />
-                        </div>
-                        <input type="submit" name="submit" id="submit" value="Log in & Start" class="btn btn-lolz" />
-                    </div>
-                    <div id="authenticationCode">
-                        <div class="form-group">
-                            <label>Code</label>
-                            <input type="text" class="form-control" id="code" placeholder="Code" maxlength="6"
-                                required />
-                        </div>
-                        <input type="submit" id="sendCode" value="Send" class="btn btn-lolz" />
-                    </div>
-                    <div id="panel">
-                        <div class="form-group">
-                            <label>Frequency</label>
-                            <select id="frequency">
-                                <option value="1" selected="selected">Run one iteration</option>
-                                <option value="2">Run every min</option>
-                                <option value="3">Repeat every 5 min</option>
-                                <option value="4">Repeat every 30 min</option>
-                                <option value="5">Repeat every 1 h</option>
-                            </select>
-                        </div>
-                        <input type="submit" id="stop" value="Stop" class="btn btn-stop" />
-                        <input type="submit" id="start" value="Start" class="btn btn-lolz" />
-                        <input type="submit" id="reset" value="Reset account" class="btn btn-lolz" />
-                    </div>
-                </form>
+      <div id="notification" class="hidden">
+        <p id="message"></p>
+        <button class="btn btn-lolz" id="close-button">
+          Hide notification
+        </button>
+        <button class="btn btn-lolz" id="restart-button" class="hidden">
+          Restart
+        </button>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <form onsubmit="return false" novalidate>
+            <div id="userData">
+              <div class="form-group">
+                <label>Username</label>
+                <input
+                  type="username"
+                  class="form-control"
+                  id="username"
+                  placeholder="Username"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <input
+                type="submit"
+                name="submit"
+                id="submit"
+                value="Log in & Start"
+                class="btn btn-lolz"
+              />
             </div>
-            <div class="col-md-8">
-                <div class="logs">
-                    <textarea id="logsData" rows="10" readonly></textarea>
-                </div>
+            <div id="authenticationCode">
+              <div class="form-group">
+                <label>Code</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="code"
+                  placeholder="Code"
+                  maxlength="6"
+                  required
+                />
+              </div>
+              <input
+                type="submit"
+                id="sendCode"
+                value="Send"
+                class="btn btn-lolz"
+              />
             </div>
+            <div id="panel">
+              <div class="form-group">
+                <label>Frequency</label>
+                <select id="frequency">
+                  <option value="1" selected="selected"
+                    >Run one iteration</option
+                  >
+                  <option value="2">Run every min</option>
+                  <option value="3">Repeat every 5 min</option>
+                  <option value="4">Repeat every 30 min</option>
+                  <option value="5">Repeat every 1 h</option>
+                </select>
+              </div>
+              <input
+                type="submit"
+                id="stop"
+                value="Stop"
+                class="btn btn-stop"
+              />
+              <input
+                type="submit"
+                id="start"
+                value="Start"
+                class="btn btn-lolz"
+              />
+              <input
+                type="submit"
+                id="reset"
+                value="Reset account"
+                class="btn btn-lolz"
+              />
+            </div>
+          </form>
         </div>
+        <div class="col-md-8">
+          <div class="logs">
+            <textarea id="logsData" rows="10" readonly></textarea>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
-</body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
 
+    <a class="btn btn-help" data-toggle="modal" data-target="#help-popup">
+      ?
+    </a>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+  ></script>
 </html>
