@@ -1,4 +1,6 @@
 # Auto-contests-participate
+This app first logging using entered username \ password and automaticly participate in free contests.
+
 Deploy settings 
 
 On macOS/linux:
