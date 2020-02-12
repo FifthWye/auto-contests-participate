@@ -92,12 +92,13 @@ ipcMain.on("restart_app", () => {
 ipcMain.on("reset", () => {
   store.delete("puppeteerCookies");
   mainWindow.webContents.send("log", "Account data was reset");
+  mainWindow.reload()
 });
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-const mainUrl = "https://lolzteam.net";
+const mainUrl = "https://lolzteam.online";
 const contestsPage = "/forums/contests/"; //contests page
 const loginUrl = "/login"; //login page
 
@@ -264,7 +265,7 @@ async function participateInCont(page, browser) {
         var link = $(this).attr("href");
         let alreadyParticipate = $("h3.title i.fa", $(this)).length;
         if (!alreadyParticipate) {
-          let fullLink = "https://lolzteam.net/" + link;
+          let fullLink = mainUrl + "/" + link;
           urls.push(fullLink);
         }
       });
